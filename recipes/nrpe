@@ -1,0 +1,10 @@
+%w{ epel-release nagios-nrpe nagios-plugins-nrpe }.each do |pkg|
+  package "#{pkg}" do
+    action :install
+  end
+end
+
+service 'nrpe' do
+ action [ :enable, :start ]
+end
+
